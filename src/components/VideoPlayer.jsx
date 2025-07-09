@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const VideoPlayer = ({ src, shouldPlay }) => {
+const VideoPlayer = ({ src, shouldPlay, poster }) => {
   const videoRef = useRef();
 
   useEffect(() => {
@@ -18,11 +18,12 @@ const VideoPlayer = ({ src, shouldPlay }) => {
     <video
       ref={videoRef}
       src={src}
+      poster={poster} // ✅ add poster image
       muted
       loop
       playsInline
-      preload="none"
-      className="w-full h-64 object-cover rounded"
+      preload="metadata"
+      className="w-full h-64 object-cover rounded will-change-transform will-change-contents"
     />
   );
 };

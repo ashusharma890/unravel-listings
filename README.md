@@ -65,10 +65,10 @@ npm run dev # or npm start if using Create React App
 
 ---
 
-## 📦 Deployment (Vercel Recommended)
+## 📦 Deployment (Netlify Recommended)
 
 1. Push to GitHub
-2. Connect your repo to [Vercel](https://vercel.com/)
+2. Connect your repo to [Netlify](https://app.netlify.com//)
 3. Select root directory and deploy 🎉
 
 ---
