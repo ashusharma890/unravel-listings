@@ -4,7 +4,7 @@ Responsive and optimized room listing built for the Unravel Frontend Challenge.
 
 ## 🚀 Live Demo
 
-[**Click here**](https://your-live-deployment-link.com) to view the deployed app.
+[**Click here**](https://unravelhotels.netlify.app/) to view the deployed app.
 
 ---
 
