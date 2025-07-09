@@ -22,6 +22,5 @@ const useInViewMedia = (ref) => {
   return isVisible;
 };
 
-
 export default useInViewMedia;
 
