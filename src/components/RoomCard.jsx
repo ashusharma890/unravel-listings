@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import useInViewMedia from "../hooks/useInViewMedia";
 import VideoPlayer from "./VideoPlayer";
 import ImageLoader from "./ImageLoader";

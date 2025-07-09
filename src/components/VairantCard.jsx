@@ -19,6 +19,7 @@ const VariantCard = ({ variant }) => {
     return (
       <div className="border rounded-md p-4 shadow-sm mb-3 bg-white">
         <ul className="text-sm space-y-1">
+          <li>🏠 {title}</li>
           <li>🍽️ {meal}</li>
           <li>🛌 {bed}</li>
           <li>👥 {capacity}</li>
