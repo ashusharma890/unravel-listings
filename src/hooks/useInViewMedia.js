@@ -1,26 +1,33 @@
-import { useState, useEffect } from "react";  
+import { useState, useEffect, useMemo } from "react"; // Import useMemo
 
 const useInViewMedia = (ref) => {
   const [isVisible, setIsVisible] = useState(false);
 
-  const options = {
+  // Memoize the options object so it's only recreated if its dependencies change.
+  // In this case, there are no internal dependencies for options, so it's created once.
+  const options = useMemo(() => ({
     root: null, // viewport
     rootMargin: '0px',
     threshold: 0.5, // Element must be 50% in view
-  };
+  }), []); // Empty dependency array means this object is created only once on initial render
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
-    }, options); // 'options' should be passed in or defined when calling useInViewMedia
+    }, options);
 
-    if (ref.current) observer.observe(ref.current);
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
 
-    return () => observer.disconnect();
-  }, [ref, options]); // Added options to dependency array to re-create observer if options change
+    return () => {
+      if (ref.current) { // Check ref.current before disconnecting as it might be null on unmount
+        observer.disconnect();
+      }
+    };
+  }, [ref, options]); // 'options' is now a stable reference due to useMemo
 
   return isVisible;
 };
 
 export default useInViewMedia;
-
