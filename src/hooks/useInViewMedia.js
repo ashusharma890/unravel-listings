@@ -12,13 +12,16 @@ const useInViewMedia = (ref) => {
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
       setIsVisible(entry.isIntersecting);
-    }, options);
+    }, options); // 'options' should be passed in or defined when calling useInViewMedia
+
     if (ref.current) observer.observe(ref.current);
+
     return () => observer.disconnect();
-  }, [ref]);
+  }, [ref, options]); // Added options to dependency array to re-create observer if options change
 
   return isVisible;
 };
+
 
 export default useInViewMedia;
 
